@@ -1,3 +1,6 @@
+from ErrorManager.Error import *
+
+
 class SourceFile:
 
     # Class Fields
@@ -24,6 +27,7 @@ class SourceFile:
         else:
             # File created successfully
             file.close()
+            return Error(0, ErrSuccess)  # Error(line, err)
 
     # readFile - Method to read content from file
     def _readFile(self):
@@ -36,17 +40,18 @@ class SourceFile:
 
         except:
             # Error - Reading file
-            return "Error"
+            return Error(0, ErrReadingSourceFile)  # Error(line, err)
 
         else:
             # File successfully read
             file.close()
+            return Error(0, ErrSuccess)  # Error(line, err)
 
     # writeFile - Method to write content to a file
     def writeFile(self, content):
         try:
             # Open file
-            file = open(self._filePath, 'w+')
+            file = open(self._filePath, 'w')
             # Write to file
             file.write(content)
             # Update file lines
@@ -55,7 +60,10 @@ class SourceFile:
                 self._fileLines.append(line)
 
         except:
-            return "Error"
+            return Error(0, ErrReadingSourceFile)  # Error(line, err)
+
+        else:
+            return Error(0, ErrSuccess)  # Error(line, err)
 
         finally:
             file.close()

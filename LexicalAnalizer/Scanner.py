@@ -23,16 +23,12 @@ class Scanner:
         # Assign source file
         self._sourceFile = sourceFile
         self._sourceInstructions = self._sourceFile.getInstructions()
+        # Fetch an instruction
         self._fetchInstruction()
+        # Update fetching flag
         self._fetching = False
 
     # Class Process
-    # isLetter - Method to validate if char is a letter
-    def _isLetter(self, char):
-        if ("a" <= char <= "z") or ("A" <= char <= "Z"):
-            return True
-        return False
-
     # isDigit - Method to validate if char is a digit
     def _isDigit(self, char):
         if "0" <= char <= "9":
@@ -41,7 +37,7 @@ class Scanner:
 
     # isOperator - Method to validate if char is an operator
     def _isOperator(self, char):
-        if char == "+" or char == "-":
+        if char == "+" or char == "-" or char == "h":
             return True
         return False
 
@@ -102,13 +98,6 @@ class Scanner:
             while self._isDigit(self._currentChar) and not self._fetching:
                 self._fetchChar()
             return Tokens["INT"]
-
-        # Validate if Letter
-        elif self._isLetter(self._currentChar):
-            self._fetchChar()
-            while self._isLetter(self._currentChar) and not self._fetching:
-                self._fetchChar()
-            return Tokens["CHAR"]
 
         # Validate if Operator
         elif self._isOperator(self._currentChar):

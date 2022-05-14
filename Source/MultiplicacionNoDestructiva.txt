@@ -1,0 +1,31 @@
+; Programa de multiplicación no destructiva
+
+
+;Si multiplicamos UnidadesXUnidades
+1: 5, +, 1, 2 ; Aumente las unidades
+2: 6, +, 3, 6 ; Aumente las decenas 
+3: 5, -, 3, 1 ; y reinicie las unidades
+;Si multiplicamos UnidadesXdecenas
+4: 3, +, 3, 5 ; Aumente la decenas
+5: 1, +, 5, 5 ; Aumente las centenas
+6: 6, -, 1, 2 ; reiniciar decenas
+;Si multiplicamos decenasXdecenas
+7: 5, +, 1, 100 ; Aumente las centenas
+8: 5, -, 3, 1 ; reinicie las centenas
+9: h ;salida normal
+100: 8, -, 100, 101 ; Control de errores
+101: 8, +, 102, 102
+102: h
+
+;Multiplicamos primero unidadesXunidades, unidadesXdecenas...
+
+V1 Unidades   multiplicando
+V2 Decenas
+
+V3 Unidades   multiplicador
+V4 Decenas   
+
+V5 Unidades   Resultado
+V6 Decenas
+V7 Centenas
+V8 control de errores

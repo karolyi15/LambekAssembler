@@ -25,12 +25,11 @@ class Token:
 # Token's Types
 Tokens = {
     "INT": 0,           # Integer
-    "CHAR": 1,          # Char
-    "OPERATOR": 2,      # Operator
-    "COMMA": 3,         # Comma
-    "TWODOTS": 4,       # Two Dots
-    "SEPARATOR": 5,     # Separator
-    "COMMENT": 6,       # Comment
-    "EOF": 7,           # End of File
-    "ERROR": 8,         # Error
+    "OPERATOR": 1,      # Operator
+    "COMMA": 2,         # Comma
+    "TWODOTS": 3,       # Two Dots
+    "SEPARATOR": 4,     # Separator
+    "COMMENT": 5,       # Comment
+    "EOF": 6,           # End of File
+    "ERROR": 7,         # Error
 }
